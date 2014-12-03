@@ -73,7 +73,8 @@ void MyGLWidget::countFigurePoints() {
     vertex.clear();
     normal.clear();
     index.clear();
-    double step_phi = pi / count;// / 2;
+    textures.clear();
+    double step_phi = pi / count / 2;
     double step_psi = pi / count * 2;
     double phi = pi/360;
     double psi = 0;
@@ -90,17 +91,17 @@ void MyGLWidget::countFigurePoints() {
          tempPoint.push_back(figurePoint(phi, psi + step_psi));
 
          textures.push_back(psi/(2 * pi));
-         textures.push_back((pi - phi)/pi);
+         textures.push_back((pi/2 - phi)/pi * 2);
          //qDebug() << psi/(2 * pi) << endl;
          //qDebug() << psi/(2 * pi) << endl;
          textures.push_back(psi/(2 * pi));
-         textures.push_back((pi - phi - step_phi)/pi);
+         textures.push_back((pi/2 - phi - step_phi)/pi * 2);
 
          textures.push_back((psi + step_psi)/(2 * pi));
-         textures.push_back((pi - phi - step_phi)/pi);
+         textures.push_back((pi/2 - phi - step_phi)/pi * 2);
 
          textures.push_back((psi + step_psi)/(2 * pi));
-         textures.push_back((pi - phi)/pi);
+         textures.push_back((pi/2 - phi)/pi * 2);
 
 
          n = QVector3D::normal(tempPoint[1] - tempPoint[0], tempPoint[3] - tempPoint[0]);
